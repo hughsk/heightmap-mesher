@@ -2,6 +2,7 @@ attribute vec3 position;
 uniform mat4 projection;
 uniform mat4 model;
 uniform mat4 view;
+
 varying vec3 pos;
 
 void main() {
