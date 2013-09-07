@@ -46,7 +46,7 @@ function init() {
 var model = mat4.identity(new Float32Array(16))
 var tempm = mat4.identity(new Float32Array(16))
 var gridp = [0,0,0]
-var scale = [5,0.7,5]
+var scale = [10,2,10]
 function render() {
   var gl = shell.gl
 
