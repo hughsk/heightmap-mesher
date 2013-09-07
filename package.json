@@ -1,0 +1,40 @@
+{
+  "name": "heightmap-mesher",
+  "version": "0.0.0",
+  "description": "A naive heightmap mesher that takes a 2D ndarray and returns a 3D mesh",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "brfs": "~0.0.7",
+    "game-shell-orbit-camera": "~0.0.0",
+    "gl-buffer": "~0.1.1",
+    "gl-matrix": "~2.0.0",
+    "gl-now": "~0.0.4",
+    "gl-shader": "~0.0.6",
+    "gl-vao": "~0.0.2",
+    "ndarray-fill": "~0.1.0",
+    "perlin": "~1.0.0",
+    "zeros": "~0.0.0",
+    "beefy": "~0.4.1",
+    "browserify": "~2.29.1"
+  },
+  "scripts": {
+    "start": "beefy demo.js:bundle.js -- -t brfs",
+    "prepublish": "browserify demo.js -t brfs > bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/heightmap-mesher.git"
+  },
+  "keywords": [
+    "ndarray",
+    "heightmap",
+    "terrain",
+    "3d",
+    "webgl",
+    "mesher"
+  ],
+  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughskennedy.com/)",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
