@@ -25,8 +25,8 @@ function init() {
   var gl = shell.gl
 
   shader = createShader(gl
-    , "attribute vec3 position;\nuniform mat4 projection;\nuniform mat4 model;\nuniform mat4 view;\nvarying vec3 pos;\n\nvoid main() {\n  pos = position;\n  gl_Position = projection * view * model * vec4(position, 1.0);\n}\n"
-    , "precision mediump float;\n\nvarying vec3 pos;\n\nvoid main() {\n  gl_FragColor = vec4(pos.xyz, 1.0);\n}\n"
+    , "attribute vec3 position;\nuniform mat4 projection;\nuniform mat4 model;\nuniform mat4 view;\n\nvarying vec3 pos;\n\nvoid main() {\n  pos = position;\n  gl_Position = projection * view * model * vec4(position, 1.0);\n}\n"
+    , "precision mediump float;\n\nvarying vec3 pos;\n\nvoid main() {\n  const float LOG2 = 1.442695;\n  const float density = 0.06125;\n  float z = gl_FragCoord.z / gl_FragCoord.w;\n  float fogFactor = 1.0 - clamp(exp2(-density * density * z * z * LOG2), 0.0, 1.0);\n  gl_FragColor = vec4(mix(pos.xyz, vec3(1.0,1.0,1.0), fogFactor), 1.0);\n}\n"
   )
 
   meshes = [
@@ -47,7 +47,7 @@ function init() {
 var model = mat4.identity(new Float32Array(16))
 var tempm = mat4.identity(new Float32Array(16))
 var gridp = [0,0,0]
-var scale = [5,0.7,5]
+var scale = [10,2,10]
 function render() {
   var gl = shell.gl
 
